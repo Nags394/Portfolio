@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>NHDev</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <link rel="stylesheet" href="src/css/navbar.css">
+    <link rel="stylesheet" href="src/css/accordion.css">
+    <link rel="stylesheet" href="src/css/projects.css">
+    <link rel="stylesheet" href="src/css/networks.css">
+    <link rel="stylesheet" href="src/css/contact.css">
+    <link rel="stylesheet" href="src/css/home.css">
+    <link rel="stylesheet" href="src/css/footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
+  </head>
+
+
+  <body>
+    <main class="page">
+      <header class="page-header">
+      
+        <!-- NAVBAR -->
+        <nav class="navbar">
+          <img src="src/assets/images/logo.png" class="nav-logo">
+
+          <h1 id="nav-logo-text"></h1>
+
+          <button id="menu-toggle" class="hamburger">☰</button>
+
+           <ul id="nav-menu" class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Sobre mí</a></li>
+            <li><a href="#projects">Proyectos</a></li>
+            <li><a href="#networks">Redes</a></li>
+            <li><a href="#contact">Contacto</a></li>
+            <li class="nav-lang-btn">
+              <a href="#footer-lang" aria-label="Cambiar idioma">
+                <img src="src/assets/images/language.png" alt="Cambiar idioma" class="lang-icon">
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+      </header>
+      
+      <!-- SECCIÓN HOME -->
+      <section id="home" class="home-section">
+        <h1 id="home-line-1"></h1>
+        <h1 id="home-line-2"></h1>
+      </section>
+
+
+      <!--SECCIÓN SOBRE MÍ-->
+      
+      <section id="about" class="accordion-wrap">
+        <h2 id="about-title" class="section-title"></h2>
+        <div class="window-bar">
+          <span class="window-path">C:\...</span>
+        </div>
+        <article id="accordion" class="accordion" aria-live="polite">
+          <!-- Items serán renderizados por TypeScript -->
+        </article>
+      </section>
+      
+      <!--SECCIÓN PROYECTOS-->
+      <section id="projects" class="projects-section">
+        <h2 id="projects-title" class="section-title"></h2>
+
+        <div class="carousel-wrapper">
+          <button class="carousel-btn prev" aria-label="Anterior">‹</button>
+
+          <div class="carousel">
+            <div class="carousel-track">
+              <!-- Cards cargadas dinámicamente -->
+            </div>
+          </div>
+
+          <button class="carousel-btn next" aria-label="Siguiente">›</button>
+        </div>
+      </section>
+
+      <!-- SECCIÓN REDES -->
+      <section id="networks" class="networks-section">
+        <h2 id="networks-title" class="section-title"></h2>
+
+        <div id="networks-container" class="networks-container">
+          <!-- Íconos cargados dinámicamente por networks.ts -->
+        </div>
+      </section>
+
+      <!-- SECCIÓN CONTACTO -->
+      <section id="contact" class="contact-section">
+        <h2 id="contact-title" class="section-title"></h2>
+
+        <div class="contact-form">
+          <form id="form" class="form">
+
+            <!-- FILA 1: Nombre + Apellido -->
+            <div class="contact-row-two">
+              <label for="name">
+                <span id="label-name"></span>
+                <input type="text" name="name" required placeholder="">
+              </label>
+
+              <label for="lastname">
+                <span id="label-lastname"></span>
+                <input type="text" name="lastname" required placeholder="">
+              </label>
+            </div>
+
+            <!-- FILA 2: Asunto (90%) -->
+            <div class="contact-row-single">
+              <label for="subject">
+                <span id="label-subject"></span>
+                <input type="text" name="subject" required placeholder="">
+              </label>
+            </div>
+
+            <!-- FILA 3: Mensaje (90%) -->
+            <div class="contact-row-message">
+              <label for="message">
+                <span id="label-message"></span>
+                <textarea name="message" required placeholder=""></textarea>
+              </label>
+            </div>
+
+            <!-- FILA 4: Captcha + Botón -->
+            <div class="contact-row-captcha-submit">
+              <div class="captcha-container">
+                <div class="g-recaptcha" data-sitekey="6LeNCw0sAAAAAExWu3IxaObtSTdy443DKobc2T-A"></div>
+              </div>
+
+              <button type="submit" id="contact-submit" class="contact-submit"></button>
+            </div>
+
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer-lang" class="site-footer">
+      <div class="langSelector">
+        <button class="langBtn" data-lang="es">ES</button>
+        <button class="langBtn" data-lang="en">EN</button>
+        <button class="langBtn" data-lang="it">IT</button>
+        <button class="langBtn" data-lang="de">DE</button>
+      </div>
+      <p>© 2026 Naguib Hanna. All rights reserved.</p>
+    </footer>
+    
+    <!-- Script compilado desde TypeScript -->
+    <script type="module" src="dist/lang.js"></script>
+    <script type="module" src="dist/navbar.js"></script>
+    <script type="module" src="dist/home.js"></script>
+    <script type="module" src="dist/accordion.js"></script>
+    <script type="module" src="dist/projects.js"></script>
+    <script type="module" src="dist/networks.js"></script>
+    <script type="module" src="dist/contact.js"></script>
+
+  </body>
+</html>
