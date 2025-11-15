@@ -1,0 +1,187 @@
+:root{
+  --bg: #200f38;
+  --nav-bar: #4d356b;
+  --highlights:#4d356b;
+  --panel-bg: #0b0b0b;
+  --text: #c2bfbf;
+  --textAlt:#000000;
+  --gray:#BEBEBE;
+  --accent-2: #9aa4c0;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  --container-max: 1100px;
+  --gap: 16px;
+  --consoleFont: "Inconsolata", monospace;
+}
+
+.accordion-wrap{
+  width: 90%;
+  max-width: 1200px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+/* Window bar estilo "C:\..." */
+.window-bar{
+  width:85%;
+  background:var(--gray);
+  color:var(--textAlt);
+  border-top-left-radius:var(--radius);
+  border-top-right-radius:var(--radius);
+  padding:8px 12px;
+  font-family: var(--text);
+  font-size: 1.4rem;
+  margin-bottom:0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+/* Contenedor del acordeón (panel oscuro) */
+.accordion{
+  width:85%;
+  background: var(--panel-bg);
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: var(--shadow);
+  overflow:hidden;
+  margin-top:0;
+  padding:18px;
+}
+
+/* Ajustes responsive */
+@media (max-width:900px){
+  .window-bar,
+  .accordion { width: 100%; }
+}
+
+/* Item del acordeón */
+.ac-item {
+  padding: 8px 0;
+  border: none; /* quitamos la línea anterior */
+  position: relative;
+}
+
+.ac-item::after {
+  content: "";
+  display: block;
+  height: 2px; /* grosor del divisor */
+  margin-top: 8px;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--gray) 0,
+    var(--gray) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+/* títulos desplegables */
+.ac-header {
+  font-family: var(--consoleFont);
+  color: var(--text);
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  cursor:pointer;
+  user-select:none;
+  outline: none;
+  background: transparent;
+  border: none;
+}
+
+.ac-header:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.3);
+  outline-offset: 3px;
+}
+.ac-header:hover .ac-title,
+.ac-item.open .ac-title {
+  color: var(--text);
+  text-shadow: 0 0 8px var(--highlights);
+  transition: color 0.25s ease, text-shadow 0.3s ease;
+}
+
+/* Icono '>' */
+.ac-icon {
+  font-family: monospace;
+  font-weight:700;
+  color: var(--accent);
+  opacity: 1;
+  transition: opacity 220ms ease;
+  margin-top: 2px;
+}
+
+/* Título */
+.ac-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height:1.2;
+}
+
+/* Contenido colapsable */
+.ac-content {
+  overflow: hidden;
+  max-height: 0;
+  transform: translateY(-6px);
+  transition:
+    max-height 420ms cubic-bezier(.2,.8,.2,1),
+    opacity 320ms ease,
+    transform 320ms cubic-bezier(.2,.8,.2,1);
+}
+
+/*Contenido dentro del panel (padding interno)*/
+.ac-inner {
+  padding: 12px 6px 18px 24px;
+  color: #dfe7f5;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Estado abierto */
+.ac-item.open .ac-content {
+  max-height: 500px; /* suficiente para el contenido; si precisas más, aumentar */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Icono pierde opacidad al abrir */
+.ac-item.open .ac-icon {
+  opacity: 0.70;
+}
+
+/* Separador visual inferior al contenido */
+.ac-inner + .separator {
+  display:block;
+  height:1px;
+  margin:12px 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+}
+/* Asegurar buena lectura en pantallas pequeñas */
+@media (max-width:480px){
+  .ac-title { font-size: 1rem; }
+  .ac-inner { padding-left: 18px; font-size:0.92rem; }
+  .window-bar { font-size:13px; padding:6px 10px; }
+}
+/*FOOTER*/
+/* Botones de idioma */
+.langSelector{
+  display:flex;
+  gap: var(--space-3);
+  justify-content:center;
+  margin-bottom:18px;
+  margin-top: var(--space-4);
+}
+
+.langBtn{
+  background:transparent;
+  color:var(--muted);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.langBtn[aria-pressed="true"]{
+  background: rgba(255,255,255,0.06);
+  color: var(--accent);
+  border-color: rgba(255,255,255,0.14);
+}

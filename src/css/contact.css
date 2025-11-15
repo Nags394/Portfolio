@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
+
+:root {
+  --bg: #200f38;
+  --nav-bar: #4d356b;
+  --highlights: #4d356b;
+  --panel-bg: #0b0b0b;
+  --text: #c2bfbf;
+  --gray: #BEBEBE;
+  --accent-2: #9aa4c0;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  --container-max: 1100px;
+  --gap: 16px;
+  --consoleFont: "Inconsolata", monospace;
+}
+
+/* ─────────────────────────────────────────
+   SECCIÓN GENERAL
+──────────────────────────────────────────*/
+.contact-section {
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+}
+
+.contact-form {
+  width: 50%;                      
+  background-color: var(--panel-bg);
+background-image: url("https://www.transparenttextures.com/patterns/black-paper.png"); 
+  border: 1px solid var(--gray); 
+  border-radius: var(--radius);      
+  padding: 40px;                      
+  box-shadow: var(--shadow);          
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto; 
+}
+
+/* FORMULARIO INTERNO */
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: var(--text);
+  font-family: var(--consoleFont);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.1);
+  color: var(--text);
+  backdrop-filter: blur(4px);
+  transition: 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 8px var(--accent-2);
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-row-two {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+.contact-row-two label {
+  flex: 1;
+  max-width: 40%;
+}
+
+.contact-row-single {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-row-message {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contact-row-captcha-submit {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+}
+
+/* CAPTCHA → 60% */
+.captcha-container {
+  flex: 0 0 60%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Botón → 30% */
+.contact-submit {
+  flex: 0 0 30%;
+  padding: 14px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--nav-bar);
+  color: white;
+  font-weight: 600;
+  transition: 0.25s ease;
+  box-shadow: var(--shadow);
+}
+
+.contact-submit:hover {
+  background-color: var(--highlights);
+  transform: translateY(-2px);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+──────────────────────────────────────────*/
+@media (max-width: 750px) {
+
+  .contact-row-two {
+    flex-direction: column;
+  }
+
+  .contact-row-two label {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .contact-row-single,
+  .contact-row-message {
+    width: 100%;
+  }
+
+  .contact-row-captcha-submit {
+    flex-direction: column;
+  }
+
+  .captcha-container {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-submit {
+    flex: none;
+    width: 100%;
+  }
+}

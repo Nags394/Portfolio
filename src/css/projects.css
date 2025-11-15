@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
+
+:root{
+  --bg: #200f38;
+  --nav-bar: #4d356b;
+  --highlights:#4d356b;
+  --panel-bg: #0b0b0b;
+  --text: #c2bfbf;
+  --gray:#BEBEBE;
+  --accent-2: #9aa4c0;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  --container-max: 1100px;
+  --gap: 16px;
+  --consoleFont: "Inconsolata", monospace;
+}
+
+/* === Sección general === */
+.projects-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.projects-section h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  text-align: left;
+  color: var(--text);
+}
+
+.section-title {
+  font-family: var(--consoleFont);
+  color: var(--text);
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* === CARRUSEL PROYECTOS=== */
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 16px;
+}
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  z-index: 1;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+/* === Botones del carrusel (YA NO absolute) === */
+.carousel-btn {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--text);
+  font-size: 3rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  pointer-events: auto;
+  line-height: 0;
+}
+
+.carousel-btn:hover {
+  transform: scale(1.15);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* === Cards === */
+.card {
+  flex: 0 0 25%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.card-inner {
+  background: #2b2438;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.card-inner:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 70%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 15%;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.281);
+}
+.card img:hover {
+  transform: scale(1.05);           /* Agranda 5% */
+  outline: 1.5px solid #ffffff80;   /* Outline suave */
+  box-shadow: 0 0 12px #ffffff50;
+}
+.card h3 {
+  font-family: var(--consoleFont);
+  font-size: 1.3rem;
+  margin: 12px 0;
+  color: var(--text);
+  text-align: center;
+}
+.card .card-inner,
+.card .card-inner a {
+  text-decoration: none;
+  color: inherit;
+}
+/* === Responsive: una imagen por vez en mobile === */
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 100%;
+  }
+}

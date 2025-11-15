@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
+
+:root {
+  --bg: #200f38;
+  --nav-bar: #4d356b;
+  --highlights: #4d356b;
+  --panel-bg: #0b0b0b;
+  --text: #c2bfbf;
+  --gray: #BEBEBE;
+  --accent-2: #9aa4c0;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  --container-max: 1100px;
+  --gap: 16px;
+  --consoleFont: "Inconsolata", monospace;
+}
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+  width: 100%;
+  padding: 40px 0;
+  background-color: var(--bg);
+background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
+  color: var(--text);
+  font-family: var(--consoleFont);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  border-top: 1px solid var(--gray);
+}
+
+/* Texto */
+.site-footer p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 1;
+}
+
+/* ---------- Selector de idioma ---------- */
+
+.langSelector {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.langBtn {
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  background-color: var(--nav-bar);
+  color: var(--text);
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: var(--consoleFont);
+  transition: 0.2s ease;
+  box-shadow: 0 4px 10px var(--highlights); 
+}
+
+.langBtn:hover {
+  background-color: var(--highlights);
+  border-color: var(--gray);
+  transform: translateY(-3px);
+}

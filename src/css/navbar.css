@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
+
+:root {
+  --bg: #200f38;
+  --nav-bar: #4d356b;
+  --highlights: #4d356b;
+  --panel-bg: #0b0b0b;
+  --text: #c2bfbf;
+  --gray: #BEBEBE;
+  --accent-2: #9aa4c0;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  --consoleFont: "Inconsolata", monospace;
+}
+.page-header{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+/* ---------------------- NAVBAR ---------------------- */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: var(--nav-bar);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem 0 1.5rem;
+  z-index: 999;
+  overflow: hidden;
+}
+
+/* Gradientes superior e inferior */
+.navbar::before,
+.navbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  pointer-events: none;
+}
+
+.navbar::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45), transparent);
+}
+
+.navbar::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--panel-bg), transparent);
+}
+
+/* ---------------------- LOGO ---------------------- */
+
+.nav-logo {
+  height: 70px;
+  width: auto;
+  padding-left: 10%;
+  cursor: pointer;
+}
+
+/* ---------------------- TEXTO DINÁMICO ---------------------- */
+
+#nav-logo-text {
+  visibility: hidden;
+}
+
+/* ---------------------- LINKS DESKTOP ---------------------- */
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.8rem;
+  align-items: center;
+  height: 70px;  
+  margin-left: auto;
+}
+
+.nav-links li a {
+  color:var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color .2s ease;
+}
+
+.nav-links li a:hover {
+  color: #6aff75;
+}
+
+/* Botón idioma */
+.nav-lang-btn a {
+  font-size: 1.4rem;
+  padding: 15px 15px;
+  display: flex;
+  color: var(--gray);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  transition: background .2s ease;
+}
+.lang-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-lang-btn a:hover {
+  background: var(--bg);
+}
+
+/* ---------------------- HAMBURGUESA ---------------------- */
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ---------------------- MOBILE ---------------------- */
+
+@media (max-width: 768px) {
+
+  /* Asegura que el menú se posicione relativo a la navbar */
+  .navbar {
+    padding: 0 1rem;
+    position: relative; /* <- IMPORTANTE */
+    z-index: 1000;
+  }
+
+  /* Logo centrado en mobile */
+  .nav-logo {
+    padding-left: 0;
+    order: 2;
+    margin: 0 auto;
+  }
+
+  /* Ocultar el texto del logo */
+  #nav-logo-text {
+    display: none;
+  }
+
+  /* Mostrar hamburguesa */
+  .hamburger {
+    display: block;
+    order: 3;
+    cursor: pointer;
+    z-index: 2001; /* para que quede arriba del menú */
+  }
+
+  /* Menú mobile oculto */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.3rem;
+
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+
+    background: #111;
+    z-index: 2000; /* <- CLAVE: por encima de navbar */
+  }
+
+  /* Menú visible */
+  .nav-links.open {
+    display: flex;
+  }
+}

@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
+
+:root{
+  --bg: #200f38;
+  --nav-bar: #4d356b;
+  --highlights:#4d356b;
+  --panel-bg: #0b0b0b;
+  --text: #c2bfbf;
+  --gray:#BEBEBE;
+  --accent-2: #9aa4c0;
+  --radius: 25px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  --container-max: 1100px;
+  --gap: 16px;
+  --consoleFont: "Inconsolata", monospace;
+}
+
+.networks-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.networks-container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin: 25px auto 0;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.network-icon img {
+  width: 150px;
+  height: auto;
+  background: var(--gray);
+  border-radius: 20%;
+  padding: 5%;
+  object-fit: contain;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.05),
+    0 0 25px rgba(77, 53, 107, 0.3), /* tu --highlights */
+    0 0 35px rgba(77, 53, 107, 0.13);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.network-icon:hover {
+  transform: scale(1.07);
+  transition: transform 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.network-icon:hover img {
+  transform: scale(1.1);
+}

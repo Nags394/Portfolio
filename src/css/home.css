@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
+
+:root{
+  --bg: #200f38;
+  --nav-bar: #4d356b;
+  --highlights:#47276e;
+  --panel-bg: #0b0b0b;
+  --text: #c2bfbf;
+  --gray:#BEBEBE;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.6);
+  --container-max: 1100px;
+  --gap: 16px;
+  --consoleFont: "Inconsolata", monospace;
+}
+
+/* Reset mínimo */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: var(--consoleFont);
+  color:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Layout centrado */
+.page{
+  width: 100%;
+  max-width: 100%;
+  min-height:100vh;
+  background: linear-gradient(180deg,var(--bg) 0%, var(--highlights) 60%);
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center;
+  gap: 60px;
+}
+#home {
+  width: 90%;
+  max-width: 1200px;
+  padding: 120px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+}
+
+/* ------- Títulos -------- */
+
+#home-line-1,
+#home-line-2 {
+  font-family: var(--consoleFont);
+  color: var(--text);
+  margin: 10px 0;
+  white-space: pre-wrap;
+  line-height: 2rem;
+}
+
+/* Primer H1 */
+#home-line-1 {
+  font-size: 3rem;
+  font-weight: 600;
+  
+}
+
+/* Segundo H1 */
+#home-line-2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.yes{
+    color: #3ee63e;
+}
+
+/* Asegura que <Si> verde funcione dinámicamente */
+#home-line-2 .yes {
+  color: #3ee63e; /* verde terminal */
+  font-weight: 700;
+}
+
+#home-line-2 .no {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* ------- Cursor estilo terminal ------- */
+
+.cursor {
+  display: inline-block;
+  width: 1ch;
+  font-weight: bold;
+  color: var(--text);
+}
+
+.cursor.invisible {
+  opacity: 0;
+}
+
+/* ------- Animaciones suaves ------- */
+
+#home-line-1,
+#home-line-2 {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.fade-out {
+  opacity: 0 !important;
+  transform: translateY(10px) !important;
+}
+
+/* ------- Responsividad ------- */
+
+@media (max-width: 768px) {
+  #home-line-1 {
+    font-size: 1.7rem;
+  }
+  #home-line-2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #home-line-1 {
+    font-size: 1.4rem;
+  }
+  #home-line-2 {
+    font-size: 1.2rem;
+  }
+}
+body {
+  background: linear-gradient(135deg, #0a0a0f, #1a1a24);
+  overflow-x: hidden;
+}
+
+body::after {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  background: url("https://grainy-gradients.vercel.app/noise.svg");
+  animation: grain 1.5s steps(6) infinite;
+}
+
+@keyframes grain {
+  0% { transform: translate(0,0) }
+  100% { transform: translate(0,-100%) }
+}
+
